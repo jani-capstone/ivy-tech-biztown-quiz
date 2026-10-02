@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
+<meta name="theme-color" content="#006648">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Ivy Tech Quiz">
+<link rel="apple-touch-icon" href="icon-192.png">
+<link rel="manifest" href="manifest.webmanifest">
+<title>Ivy Tech Community College | JA BizTown Degree Quiz</title>
+<style>
+:root{--green:#006648;--green2:#008264;--mint:#e8f4ef;--ink:#172126;--muted:#5f6b70;--line:#d9e3df;--white:#fff;--gray:#f5f7f6}
+*{box-sizing:border-box} body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;background:linear-gradient(145deg,#e6f2ed,#f7faf8);color:var(--ink);min-height:100vh}
+button{font:inherit;-webkit-tap-highlight-color:transparent}.shell{width:min(940px,calc(100% - 28px));margin:20px auto;padding-bottom:24px}
+.card{background:#fff;border:1px solid var(--line);border-radius:24px;box-shadow:0 12px 36px rgba(0,62,46,.10);overflow:hidden}
+.hero{width:100%;height:190px;object-fit:cover;display:block}.pad{padding:28px 34px 34px}.logo{display:block;width:min(510px,86%);height:auto;margin:0 auto 18px}
+.kicker{text-align:center;color:var(--green);font-size:14px;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
+h1{font-size:clamp(30px,5vw,48px);line-height:1.05;text-align:center;margin:10px 0 14px}p{line-height:1.5}.intro{max-width:690px;margin:0 auto;text-align:center;font-size:19px;color:var(--muted)}
+.challenge{max-width:560px;margin:22px auto 0;padding:17px 20px;border-radius:16px;background:var(--mint);font-size:16px}.challenge strong{display:block;color:var(--green);font-size:18px;margin-bottom:4px}
+.primary{display:block;margin:25px auto 0;border:0;border-radius:16px;background:var(--green);color:white;font-weight:850;font-size:19px;padding:17px 28px;min-height:58px;cursor:pointer;box-shadow:0 6px 0 #004c36}.primary:active{transform:translateY(3px);box-shadow:0 3px 0 #004c36}
+.hidden{display:none!important}.topbar{display:flex;align-items:center;gap:14px;margin-bottom:16px}.mini-logo{width:170px;height:auto}.progress-wrap{flex:1}.progress-text{font-weight:800;text-align:right;margin-bottom:7px;color:var(--green)}.track{height:12px;background:#dce9e4;border-radius:99px;overflow:hidden}.bar{height:100%;background:var(--green);transition:width .25s}
+.question-card{padding:30px}.qtag{font-weight:850;color:var(--green);text-transform:uppercase;letter-spacing:.1em;font-size:14px}.question{font-size:clamp(25px,4vw,36px);line-height:1.18;margin:10px 0 24px}
+.answers{display:grid;gap:13px}.answer{width:100%;min-height:66px;border:2px solid var(--line);border-radius:16px;background:white;text-align:left;padding:15px 18px;font-size:19px;font-weight:700;cursor:pointer;color:var(--ink)}.answer:hover,.answer:focus-visible{border-color:var(--green);background:var(--mint);outline:none}.answer:active{transform:scale(.99)}
+.note{text-align:center;color:var(--muted);font-size:14px;margin:18px 0 0}.result{padding:38px 30px;text-align:center;position:relative;overflow:hidden}.result-logo{width:min(420px,75%);height:auto;margin-bottom:14px}.bigicon{font-size:68px;line-height:1}.eyebrow{color:var(--green);font-weight:900;text-transform:uppercase;letter-spacing:.13em;margin-top:14px}.result h2{font-size:clamp(34px,6vw,54px);margin:8px 0 10px}.score{display:inline-block;background:var(--green);color:white;border-radius:18px;padding:13px 25px;font-size:34px;font-weight:900;margin:8px 0}.result-copy{max-width:650px;margin:13px auto 0;font-size:20px}.degree{margin:20px auto 0;max-width:610px;border:3px solid var(--green);border-radius:18px;padding:17px;background:#f9fffc;font-weight:850;font-size:20px}.sparkles{font-size:31px;letter-spacing:10px;animation:pop .6s ease-out}.fail-score{background:#eef3f1;color:var(--ink)}
+@keyframes pop{0%{transform:scale(.65);opacity:0}70%{transform:scale(1.08)}100%{transform:scale(1);opacity:1}}
+@media(max-width:620px){.shell{width:min(100% - 18px,940px);margin:9px auto}.hero{height:145px}.pad,.question-card,.result{padding:22px 18px}.topbar{display:block}.mini-logo{display:block;margin:0 auto 13px;width:155px}.progress-text{text-align:center}.answer{font-size:17px;min-height:62px}.intro{font-size:17px}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<main class="shell">
+<section id="welcome" class="card">
+<img class="hero" src="ivy-tech-fort-wayne.jpg" alt="Ivy Tech Fort Wayne campus">
+<div class="pad">
+<img class="logo" src="ivy-tech-logo.png" alt="Ivy Tech Community College">
+<div class="kicker">Ivy Tech Community College • JA BizTown</div>
+<h1>Think you can earn your degree?</h1>
+<p class="intro">Answer 7 questions about money, business and your community. Score <strong>5 out of 7</strong> or better to earn your JA BizTown Associate Degree!</p>
+<div class="challenge"><strong>🎓 Your challenge</strong>You get one chance, so choose carefully. Your score will be revealed at the end.</div>
+<button id="start" class="primary">START THE DEGREE CHALLENGE →</button>
+</div></section>
+
+<section id="quiz" class="hidden">
+<div class="topbar"><img class="mini-logo" src="ivy-tech-logo.png" alt="Ivy Tech Community College"><div class="progress-wrap"><div id="progressText" class="progress-text">Question 1 of 7</div><div class="track"><div id="bar" class="bar"></div></div></div></div>
+<div class="card question-card"><div id="qtag" class="qtag">Question 1</div><h2 id="question" class="question"></h2><div id="answers" class="answers"></div><p class="note">Choose carefully — you get one chance and your score appears at the end.</p></div>
+</section>
+
+<section id="result" class="card hidden"><div id="resultInner" class="result"></div></section>
+</main>
+<script>
+const questions=[
+ {q:"Which of the following best describes a community?",a:["a system of spending, saving and investing","a democracy with free enterprise","a democracy with free enterprise and philanthropy","a place where people live, work, trade and share"],c:3},
+ {q:"Which of the following is NOT a service offered by a bank?",a:["checking account","debit cards","social security","depositing money"],c:2},
+ {q:"Jin sold 30 hot dogs for $1.00 each, and she had expenses of $24. What is Jin’s profit?",a:["$0; she didn’t earn a profit","$6","$24","$30"],c:1},
+ {q:"Taxes are…",a:["required payments to government","payments for private goods and services","payments for philanthropy","payments for business operations"],c:0},
+ {q:"Which of the following is NOT an example of a public good or service?",a:["roads and bridges","car insurance","police protection","city parks"],c:1},
+ {q:"The part of the paycheck that tells how much money you earned after deductions is…",a:["net pay","pay stub","register","deposit"],c:0},
+ {q:"What do you call the person who gives people jobs and pays them for their work?",a:["employee","entrepreneur","employer","CFO"],c:2}
+];
+let i=0,score=0,locked=false;
+const $=id=>document.getElementById(id);
+function render(){locked=false;const x=questions[i];$("qtag").textContent=`Question ${i+1}`;$("progressText").textContent=`Question ${i+1} of ${questions.length}`;$("bar").style.width=`${((i+1)/questions.length)*100}%`;$("question").textContent=x.q;$("answers").innerHTML="";x.a.forEach((label,n)=>{const b=document.createElement("button");b.className="answer";b.textContent=label;b.onclick=()=>pick(n);$("answers").appendChild(b)})}
+function pick(n){if(locked)return;locked=true;if(n===questions[i].c)score++;i++;if(i<questions.length)render();else finish()}
+function finish(){$("quiz").classList.add("hidden");$("result").classList.remove("hidden");const pass=score>=5;const r=$("resultInner");r.innerHTML=pass?`
+<img class="result-logo" src="ivy-tech-logo.png" alt="Ivy Tech Community College">
+<div class="sparkles">🎉 🎓 🎉</div><div class="eyebrow">Degree Earned!</div>
+<h2>Congratulations, Graduate!</h2><div class="score">${score} / 7</div>
+<p class="result-copy">You earned your <strong>JA BizTown Associate Degree from Ivy Tech Community College!</strong></p>
+<div class="degree">🎓 You did it! Great work using what you know about money, business and your community.</div>`:`
+<img class="result-logo" src="ivy-tech-logo.png" alt="Ivy Tech Community College">
+<div class="bigicon">🌟</div><div class="eyebrow">Challenge Complete</div>
+<h2>Nice work, Citizen!</h2><div class="score fail-score">${score} / 7</div>
+<p class="result-copy">You didn't earn your degree today, but every college journey starts with learning something new.</p>
+<div class="degree">Keep building your skills and asking great questions. Your future has lots of possibilities!</div>`;
+const b=document.createElement("button");b.className="primary";b.textContent="NEXT CITIZEN →";b.onclick=reset;r.appendChild(b);window.scrollTo({top:0,behavior:"smooth"})}
+function reset(){i=0;score=0;locked=false;$("result").classList.add("hidden");$("welcome").classList.remove("hidden");window.scrollTo({top:0,behavior:"smooth"})}
+$("start").onclick=()=>{$("welcome").classList.add("hidden");$("quiz").classList.remove("hidden");render();window.scrollTo({top:0,behavior:"smooth"})};
+if("serviceWorker" in navigator){window.addEventListener("load",()=>navigator.serviceWorker.register("sw.js").catch(()=>{}))}
+</script>
+</body></html>
